@@ -13,13 +13,13 @@ class App extends React.Component {
   }
 
   updateState(value) {
-    console.log(value);
+    // console.log(value);
     this.setState(pState=> {
       return {
         items: [...pState.items, {value: value, completed: false}]
       }
     }, ()=> {
-      console.log(this.state.items)
+      // console.log(this.state.items)
     })
   }
 
