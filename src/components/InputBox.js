@@ -7,23 +7,23 @@ class InputBox extends React.Component {
         this.state = {
             value: ''
         }
-        this.onchange = this.onchange.bind(this);
+        this.changed = this.changed.bind(this);
     }
-    onchange(e) {
-        this.setState(pState=>{
-            return {
-                value: e.target.value
-            }
-        });
-        console.log(this.state.value);
+    changed(e) {
+        this.setState({
+                value: e.target.value, 
+        })
+
+        
     }
     render() {
         return (
             <div>
                 <form>
-                    <input type="text" id='newItem' onChange={this.onchange}/>
-                    <button onClick={()=> { 
-                        this.props.newItem(this.state.value);
+                    <input type="text" id='newItem' onChange={this.changed}/>
+                    <button onClick={(e)=> { 
+                        e.preventDefault();
+                        this.props.click(this.state.value);
                     }}>Add</button>
                 </form>
             </div>
